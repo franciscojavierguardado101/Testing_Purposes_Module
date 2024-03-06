@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * Implements hook_init().
+ *
+ * Example hook to perform actions during module initialization.
+ */
+function my_test_module_init() {
+  // Add your code for initialization here.
+  // For example, you could:
+  // - Register custom services or event listeners.
+  // - Perform database queries for setup.
+  // - Alter forms or other UI elements.
+
+  // Example: Log a message to the Drupal watchdog.
+  \Drupal::logger('my_test_module')->notice('Module initialized successfully!');
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Example hook to alter a specific form.
+ *
+ * @param array &$form
+ *   The form array to be altered.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current form state object.
+ * @param string $form_id
+ *   The ID of the form being altered.
+ */
+function my_test_module_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Check if we are on the specific form we want to alter.
+  if ($form_id === 'user_register_form') {
+    // Add a custom element to the user registration form.
+    $form['your_custom_field'] = [
+      '#type' => 'textfield',
+      '#title' => t('My Custom Field'),
+      '#required' => TRUE,
+    ];
+  }
+}
+
+// You can add additional hook implementations for testing purposes.
+

@@ -1,0 +1,4 @@
+name: My Test Module
+description: "Provides a custom module for testing purposes."
+type: module
+core_version_requirement: ^8 || ^9 || ^10
